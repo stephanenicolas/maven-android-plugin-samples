@@ -6,7 +6,7 @@
         <artifactId>morseflash-parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
-    <groupId>com.simpligility.android.morse</groupId>
+    
     <artifactId>morseflash-instrumentation</artifactId>
     <packaging>apk</packaging>
     <name>MorseFlash - Instrumentation Test</name>

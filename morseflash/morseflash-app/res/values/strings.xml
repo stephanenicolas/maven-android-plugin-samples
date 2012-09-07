@@ -4,5 +4,4 @@
     <string name="app_name">MorseFlash</string>
     <string name="messageTextToFlash">Message text to morse via flash</string>
     <string name="morseFlashNow">Morse/Flash the message now!</string>
-    <string name="deployment">${deployment.stage}</string>
 </resources>
