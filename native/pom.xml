@@ -19,6 +19,9 @@
     <module>native-static-lib</module>
     <module>native-code-including-static-lib</module>
     <module>mixed-java-native-code</module>
+    <module>native-apklib</module>
+    <module>java-with-native-apklib-dependency</module>
+    <module>mixed-java-native-with-apklib-dependency</module>
   </modules>
 
   <build>

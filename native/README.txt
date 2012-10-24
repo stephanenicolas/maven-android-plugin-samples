@@ -29,6 +29,9 @@ The examples cover the following scenarios:
 - building a native library & APK containing the built library (mixed-java-native-library)
 - building an APK containing native library defined as a transient runtime dependency (java-transient-dependency)
 - building an APK containing the statically linked library (java-with-native-statically-linked-dependency)
+- build an APKLib containing only a native library (native-apklib)
+- building an APK with an APKLib containing a native library as a dependency (java-with-native-apklib-dependency)
+- building an APK containing native code with an APKLib containering a native library as a dependency(mixed-java-native-with-apklib-dependency)
 
 -- Building the Native Samples
 

@@ -31,7 +31,15 @@
                      <systemProperties>
                        <build.directory>${project.basedir}</build.directory>
                      </systemProperties>
-                     <useLocalSrcIncludePaths>true</useLocalSrcIncludePaths>
+                     <headerFilesDirectives>
+                         <headerFilesDirective>
+                             <directory>${basedir}/jni/inc</directory>
+                             <includes>
+                                 <include>**\/*.h</include>
+                             </includes>
+                         </headerFilesDirective>
+                     </headerFilesDirectives>
+
                  </configuration>
             </plugin>
         </plugins>
