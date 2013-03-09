@@ -112,6 +112,7 @@
 				<module>morse-lib</module>
 				<module>morseflash-app</module>
 				<module>morseflash-instrumentation</module>
+				<module>morseflash-ui-automator</module>
 			</modules>
 			<properties>
 				<!-- when i will try to enter this address the app will start :) -->

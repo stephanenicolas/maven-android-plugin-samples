@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.simpligility.android.morse</groupId>
+		<artifactId>morseflash-parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>morseflash-ui-automator</artifactId>
+	<packaging>jar</packaging>
+	<name>MorseFlash - UIAutomator testing</name>
+
+	<properties>
+		<platform.version>4.1.1.4</platform.version>
+	</properties>
+	
+	<!-- UI Automator must be accessible from a nexus repo -->
+	<repositories>
+		<repository>
+			<id>octo.thirdparty</id>
+			<name>OCTO Nexus 3rd party</name>
+			<url>https://projets.octo.com/nexus/content/repositories/thirdparty/</url>
+			<layout>default</layout>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+	<dependencies>
+		<dependency>
+			<groupId>com.google.android</groupId>
+			<artifactId>android</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.google.android</groupId>
+			<artifactId>uiautomator</artifactId>
+			<scope>provided</scope>
+			<version>${platform.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.2</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<testSourceDirectory>${test.directory}</testSourceDirectory>
+		<plugins>
+			<plugin>
+				<groupId>com.jayway.maven.plugins.android.generation2</groupId>
+				<artifactId>android-maven-plugin</artifactId>
+				<configuration>
+					<lint>
+						<skip>true</skip>
+					</lint>
+					<push>
+						<source>${project.build.directory}/${project.artifactId}-${project.version}.jar</source>
+						<destination>/data/local/tmp/</destination>
+					</push>
+					<attachJar>false</attachJar>
+					<dex>
+					</dex>
+					<test>
+						<createReport>true</createReport>
+					</test>
+					<proguard>
+						<skip>true</skip>
+					</proguard>
+					<uiautomator>
+						<skip>false</skip>
+						<testClassOrMethods>
+							<testClassOrMethod>com.simpligility.android.morseflash.uitest.LaunchMorseFlash</testClassOrMethod>
+						</testClassOrMethods>
+						<createReport>true</createReport>
+					</uiautomator>
+				</configuration>
+				<executions>
+					<execution>
+						<id>install-jar-to-device</id>
+						<phase>install</phase>
+						<goals>
+							<goal>push</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>dex-classes</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>dex</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>ui-test</id>
+						<phase>install</phase>
+						<goals>
+							<goal>uiautomator</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<classesDirectory>${project.build.directory}/</classesDirectory>
+					<includes>
+						<include>classes.dex</include>
+					</includes>
+				</configuration>
+			</plugin>
+
+			<!-- Quality analysis tools -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>findbugs-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+</project>

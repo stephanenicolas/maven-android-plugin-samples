@@ -4,4 +4,9 @@
     <string name="app_name">MorseFlash</string>
     <string name="messageTextToFlash">Message text to morse via flash</string>
     <string name="morseFlashNow">Morse/Flash the message now!</string>
+    
+    <!-- Descriptions, used by ui automator tests -->
+    <string name="desc_morse_page">morse surface</string>
+    <string name="desc_morse_message">Enter message</string>
+    <string name="desc_morse_send">Send morse message</string>
 </resources>

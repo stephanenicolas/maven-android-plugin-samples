@@ -1,29 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    >
+    android:orientation="vertical" >
+
     <TextView
-        android:text="@string/messageTextToFlash"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        />
+        android:text="@string/messageTextToFlash" />
+
     <EditText
         android:id="@+id/message"
         android:layout_width="fill_parent"
+        android:inputType="text"
         android:layout_height="wrap_content"
-        />
+        android:contentDescription="@string/desc_morse_message" />
+
     <Button
         android:id="@+id/morse"
-        android:text="@string/morseFlashNow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        />
-    <TextView
-        android:text="@string/deployment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
-</LinearLayout>
+        android:contentDescription="@string/desc_morse_send"
+        android:text="@string/morseFlashNow" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/deployment" />
+
+</LinearLayout>
